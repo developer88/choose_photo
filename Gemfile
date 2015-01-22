@@ -1,3 +1,6 @@
+ruby "2.1.3"
+
+
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
@@ -34,6 +37,7 @@ gem 'slim'
 # Assets
 gem 'rails-assets-bootstrap'
 gem 'rails-assets-bootswatch'
+gem 'rails-assets-angularjs'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -61,6 +65,7 @@ end
 
 group :production do
 
+  gem 'rails_12factor'
   gem 'pg'
   gem 'thin'
 

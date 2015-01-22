@@ -1,3 +1,11 @@
-h1 Welcome 
-div
-  | This is Photo Voting Tournament. To start tournament sign In first.
+.jumbotron
+  h1 Welcome
+  p This is Photo Voting Tournament. 
+
+  p
+    - if user_signed_in? 
+      = link_to "Start Tournament", tournament_new_path, class: "btn btn-primary btn-lg"
+    - else
+      = link_to "Sign In", new_user_session_path, class: "btn btn-primary btn-lg"
+</div>
+

@@ -1,1 +1,9 @@
 h1 Tournament
+
+div ng-controller="TournamentController"
+
+  .alert.alert-dismissable.alert-danger ng-if="error.enabled"
+    h4 Error
+    p ng-bind="error.message"
+
+
