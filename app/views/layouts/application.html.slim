@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title Choose a Photo
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true 
+    = csrf_meta_tags 
+  body
+    .navbar.navbar-inverse
+      .navbar-header
+        button.navbar-toggle data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" 
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        = link_to "Choose a Photo", root_path, class: "navbar-brand"
+      .navbar-collapse.collapse.navbar-inverse-collapse
+        ul.nav.navbar-nav
+          - if user_signed_in?
+            li class="#{request.original_url.include?('tournament/new') ? 'active' : ''}" 
+              = link_to "Tournament", tournament_new_path
+            li class="#{request.original_url.include?('tournament/leaderboard') ? 'active' : ''}" 
+              = link_to "Photo Leaderboard", tournament_leaderboard_path          
+        ul.nav.navbar-nav.navbar-right
+          - if user_signed_in?
+            li class="#{request.original_url.include?('users/edit') ? 'active' : ''}" 
+              = link_to "Profile", edit_user_registration_path
+            li
+              = link_to "Logout", destroy_user_session_path, method: :delete
+          - else
+            li class="#{request.original_url.include?('users/sign_in') ? 'active' : ''}" 
+              = link_to "Sign In", new_user_session_path
+            li class="#{request.original_url.include?('users/sign_up') ? 'active' : ''}" 
+              = link_to "Sign Up", new_user_registration_path  
+    .container          
+      = yield 

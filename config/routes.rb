@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+
   devise_for :users
+  root 'welcome#index'
+
+  get  'tournament/new',                to: 'tournament#new'
+  get  'tournament/leaderboard',        to: 'tournament#leaderboard'
+  post 'tournament/vote/:photo_number', to: 'tournament#vote', as: :vote_tournament
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

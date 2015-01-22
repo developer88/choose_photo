@@ -29,6 +29,8 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem 'slim'
+
 # Assets
 gem 'rails-assets-bootstrap'
 gem 'rails-assets-bootswatch'
