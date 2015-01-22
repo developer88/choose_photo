@@ -31,12 +31,15 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'devise'
 
-
+gem 'slim'
 
 # Assets
 gem 'rails-assets-bootstrap'
 gem 'rails-assets-bootswatch'
 gem 'rails-assets-angularjs'
+
+
+gem 'httparty'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -57,19 +60,18 @@ group :development do
 end
 
 group :development, :test do
-
-  gem 'slim'
+  
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
   gem 'rspec-rails'
-  
+
 end
 
 group :production do
 
+  gem 'unicorn'
   gem 'rails_12factor'
   gem 'pg'
-  gem 'thin'
 
 end
 

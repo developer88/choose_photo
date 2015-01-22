@@ -7,7 +7,7 @@ class TournamentController < ApplicationController
   end
 
   def leaderboard
-
+    @leaders = Leader.order('count desc')
   end
 
   def vote

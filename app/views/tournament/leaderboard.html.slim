@@ -1,2 +1,8 @@
 h1 Photo Leaderboard
 
+- @leaders.each do |leader|
+  .thumbnail
+    img src="#{leader.path}"
+    .caption
+      p = "Voted: #{leader.count} times"
+
