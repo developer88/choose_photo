@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20150122185018) do
 
   create_table "leaders", force: true do |t|
-    t.integer  "count"
+    t.integer  "count",      default: 0
     t.string   "path"
     t.datetime "created_at"
     t.datetime "updated_at"

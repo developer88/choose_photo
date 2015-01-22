@@ -17,7 +17,7 @@ html
         ul.nav.navbar-nav
           - if user_signed_in?
             li class="#{request.original_url.include?('tournament/new') ? 'active' : ''}" 
-              = link_to "Tournament", tournament_new_path
+              = link_to "Tournament", tournament_new_path, "data-no-turbolink" => true
             li class="#{request.original_url.include?('tournament/leaderboard') ? 'active' : ''}" 
               = link_to "Photo Leaderboard", tournament_leaderboard_path          
         ul.nav.navbar-nav.navbar-right

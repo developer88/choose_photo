@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get  'tournament/new',                to: 'tournament#new'
   get  'tournament/leaderboard',        to: 'tournament#leaderboard'
-  post 'tournament/vote/:photo_number', to: 'tournament#vote', as: :vote_tournament
+  post 'tournament/vote/', to: 'tournament#vote', as: :vote_tournament
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

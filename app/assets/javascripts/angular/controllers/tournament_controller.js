@@ -1,26 +1,26 @@
 TournamentApp.controller("TournamentController", ["$scope", "$http", function ($scope, $http) {
     
-  $scope.images = [];  
-  $scope.error = {enabled: false, message: ""};
+  $scope.images = []; 
+  $scope.selected = []; 
+  $scope.round = 0;
 
-  $scope.show_error = function(message) {
-    $scope.error.message = message;
-    $scope.error.enabled = true;
+  $scope.startRound = function() {
+    if($scope.selected.length == 1) return $scope.saveLeader();
+    $scope.round++;
+    if($scope.selected.length == 0) return false;
+    $scope.images = $scope.selected.slice(0);
+    $scope.selected = [];
   }
 
-  $scope.hide_error = function() {
-    $scope.error.enabled = false;
+  $scope.saveLeader = function() {
+    $http.post('/tournament/vote/', {image: $scope.selected[0]});
   }
 
-  $scope.load_images = function() {
-    $scope.hide_error();
-    $http.get("http://pv.pop.umn.edu/images/").success(function(data){
-        console.log(data);
-    }).error(function(){
-      $scope.show_error("Cannot load images. Please try again!");
-    });
+  $scope.voteFor = function(image) {
+    $scope.selected.push(image);
+    $scope.images.shift();
+    $scope.images.shift();
+    if($scope.images.length == 0) $scope.startRound();
   }
-
-  $scope.load_images();
 
 }]);
