@@ -7,7 +7,7 @@ div ng-controller="TournamentController" ng-init="photos = [#{@photos[:photos]}]
       h4 Error
       p 
         | Some error occured. Please, try to refresh the  
-        = link_to "page", tournament_new_path
+        = link_to "page", tournament_new_path, class: 'alert-link'
         | .
 
   - if @photos[:status] == :success
