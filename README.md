@@ -1,6 +1,5 @@
 # Choose a Photo
-Webapp that will pair off 16 photos into one-on-
-one matchups and allow users to vote for which photo they prefer in each pairing.
+Webapp that will pair off 16 photos into one-on-one matchups and allow users to vote for which photo they prefer in each pairing.
 
 It is almost the same app as was shown in Social Network movie but it is much better - it has cats, not girls ;) , so it is 100% mi-mi-mi.
 
@@ -19,7 +18,7 @@ I used devise so i just tuned it's settings and views - nothing more.
 
 ## Tests
 
-I wrote only one feature to complete Tournament process - only this part can be tricky.
+I wrote only one feature to complete the Tournament process - only this part can be tricky.
 So, to run specs do:
 
     cucumber
