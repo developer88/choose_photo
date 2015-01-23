@@ -1,31 +1,32 @@
 h1 Tournament
 
-div ng-controller="TournamentController" ng-init="images = [#{@photos[:items]}]; startRound();"
+div ng-controller="TournamentController" ng-init="photos = [#{@photos[:photos]}]; startRound();"
 
   - if @photos[:status] == :error
     .alert.alert-dismissable.alert-danger
       h4 Error
-      p Some error occured. Please, try to refresh the page.
-
-  .alert.alert-dismissable.alert-success ng-if="selected.length == 1 && images.length == 0"
-    h4 Congratulation
-    p Wow! You have finished the tournament.
+      p 
+        | Some error occured. Please, try to refresh the  
+        = link_to "page", tournament_new_path
+        | .
 
   - if @photos[:status] == :success
-    div ng-if="!(selected.length == 1 && images.length == 0)"
+    .alert.alert-dismissable.alert-success ng-if="selected.length == 1 && photos.length == 0"
+      h4 Congratulation
+      p Wow! You have finished the tournament.
+
+    div ng-if="!(selected.length == 1 && photos.length == 0)"
       h3 
         | Round 
         span ng-bind="round"
       p Choose between 2 photos. Which do you like more?
       .row
         .col-md-4
-          a.thumbnail href="#" ng-click="voteFor(images[0])"
-            img ng-src="{{images[0]}}"
+          = render 'tournament/photo', index: 0
         .col-md-4
-          a.thumbnail href="#" ng-click="voteFor(images[1])"
-            img ng-src="{{images[1]}}"
+          = render 'tournament/photo', index: 1
 
-    .well ng-if="selected.length == 1 && images.length == 0"
+    .well ng-if="selected.length == 1 && photos.length == 0"
 
       h2 This is the Winner!
 

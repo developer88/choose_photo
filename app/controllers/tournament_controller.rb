@@ -11,7 +11,7 @@ class TournamentController < ApplicationController
   end
 
   def vote
-    Leader.store(params[:image])
+    Leader.store(params[:path])
     head :ok
   end
 

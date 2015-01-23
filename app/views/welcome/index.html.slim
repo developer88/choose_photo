@@ -1,11 +1,11 @@
 .jumbotron
   h1 Welcome
-  p This is Photo Voting Tournament. 
+  p This is a Photo Voting Tournament App. 
 
   p
     - if user_signed_in? 
       = link_to "Start Tournament", tournament_new_path, class: "btn btn-primary btn-lg"
     - else
       = link_to "Sign In", new_user_session_path, class: "btn btn-primary btn-lg"
-</div>
+
 

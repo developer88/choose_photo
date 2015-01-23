@@ -1,6 +1,6 @@
 TournamentApp.controller("TournamentController", ["$scope", "$http", function ($scope, $http) {
     
-  $scope.images = []; 
+  $scope.photos = []; 
   $scope.selected = []; 
   $scope.round = 0;
 
@@ -8,19 +8,19 @@ TournamentApp.controller("TournamentController", ["$scope", "$http", function ($
     if($scope.selected.length == 1) return $scope.saveLeader();
     $scope.round++;
     if($scope.selected.length == 0) return false;
-    $scope.images = $scope.selected.slice(0);
+    $scope.photos = $scope.selected.slice(0);
     $scope.selected = [];
   }
 
   $scope.saveLeader = function() {
-    $http.post('/tournament/vote/', {image: $scope.selected[0]});
+    $http.post('/tournament/vote/', {path: $scope.selected[0]});
   }
 
   $scope.voteFor = function(image) {
     $scope.selected.push(image);
-    $scope.images.shift();
-    $scope.images.shift();
-    if($scope.images.length == 0) $scope.startRound();
+    $scope.photos.shift();
+    $scope.photos.shift();
+    if($scope.photos.length == 0) $scope.startRound();
   }
 
 }]);
